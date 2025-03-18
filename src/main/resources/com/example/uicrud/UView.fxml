@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="317.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uicrud.UViewController">
+   <children>
+      <Label layoutX="89.0" layoutY="14.0" style="-fx-alignment: center;" text="UPDATE STUDENT" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="65.0" text="_id:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtId" layoutX="135.0" layoutY="63.0" prefHeight="25.0" prefWidth="156.0" />
+      <Button fx:id="backToMainFromUButton" layoutX="43.0" layoutY="269.0" mnemonicParsing="false" onAction="#backToMain" prefHeight="25.0" prefWidth="320.0" text="Back to main" />
+      <Label layoutX="30.0" layoutY="96.0" text="student_name: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentName" layoutX="135.0" layoutY="94.0" prefHeight="25.0" prefWidth="156.0" />
+      <Label layoutX="41.0" layoutY="129.0" text="student_age: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStudentAge" layoutX="135.0" layoutY="127.0" prefHeight="25.0" prefWidth="156.0" />
+      <Label layoutX="71.0" layoutY="160.0" text="class_id: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtClassId" layoutX="135.0" layoutY="158.0" prefHeight="25.0" prefWidth="156.0" />
+      <Button fx:id="btnUpdate" layoutX="43.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleUpDateById" prefHeight="25.0" prefWidth="320.0" text="Update" />
+      <Label layoutX="47.0" layoutY="193.0" text="class_name: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtxClassName" layoutX="135.0" layoutY="191.0" prefHeight="25.0" prefWidth="156.0" />
+      <Button fx:id="btnCheck" layoutX="306.0" layoutY="63.0" mnemonicParsing="false" onAction="#checkAvailable" prefHeight="25.0" prefWidth="57.0" text="Check" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="473.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uicrud.RResultViewController">
+
+    <TableView fx:id="studentTable" layoutX="10.0" layoutY="64.0" prefHeight="400.0" prefWidth="394.0">
+        <columns>
+            <TableColumn fx:id="colStudentName" prefWidth="100" text="Student Name" />
+            <TableColumn fx:id="colStudentAge" prefWidth="50" text="Age" />
+            <TableColumn fx:id="colClassId" prefWidth="61.0" text="Class ID" />
+            <TableColumn fx:id="colClassName" prefWidth="181.0" text="Class Name" />
+        </columns>
+    </TableView>
+   <Label layoutX="153.0" layoutY="20.0" text="QUERY RESULT">
+      <font>
+         <Font name="System Bold" size="15.0" />
+      </font>
+   </Label>
+
+</AnchorPane>

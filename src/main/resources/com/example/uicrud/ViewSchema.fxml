@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="322.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uicrud.ViewSchemaController">
+   <children>
+      <Label layoutX="87.0" layoutY="19.0" text="The document schema has been defined as:">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="209.0" layoutY="269.0" mnemonicParsing="false" onAction="#backToMain" text="Back to main">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextArea disable="true" layoutX="34.0" layoutY="66.0" prefHeight="191.0" prefWidth="455.0" text="{&#10;  &quot;student_name&quot;: &lt;value in String&gt;,&#10;  &quot;student_age&quot;: &lt;value in Integer&gt;,&#10;  &quot;class_id&quot;: &lt;value in Integer&gt;,&#10;  &quot;class_name&quot;: &lt;value in String&gt;&#10;}">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextArea>
+   </children>
+</AnchorPane>

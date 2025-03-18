@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uicrud.HelloController">
+    <children>
+        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="571.0">
+            <menus>
+                <Menu text="Options">
+                    <items>
+                        <MenuItem fx:id="menuButton" mnemonicParsing="false" onAction="#viewSchema" text="View schema" />
+                  <MenuItem fx:id="mnuExit" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <Button fx:id="switchToCreateButton" layoutX="78.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSwitchToCreateClick" prefHeight="44.0" prefWidth="88.0" text="C- CREATE" />
+      <Label layoutX="248.0" layoutY="44.0" text="Methods">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="switchToReadButton" layoutX="185.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSwitchToReadClick" prefHeight="44.0" prefWidth="88.0" text="R - READ" />
+      <Button fx:id="switchToDeleteButton" layoutX="406.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSwitchToDeleteClick" prefHeight="44.0" prefWidth="88.0" text="D - DELETE" />
+      <Button fx:id="switchToUpdateButton" layoutX="292.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSwitchToUpdateClick" prefHeight="44.0" prefWidth="88.0" text="U - UPDATE" />
+    </children>
+</AnchorPane>
