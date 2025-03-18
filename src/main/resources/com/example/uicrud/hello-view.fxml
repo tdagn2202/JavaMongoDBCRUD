@@ -18,6 +18,11 @@
                   <MenuItem fx:id="mnuExit" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                     </items>
                 </Menu>
+            <Menu text="Use your own connection!">
+               <items>
+                  <MenuItem fx:id="menuButton1" mnemonicParsing="false" onAction="#configConnection" text="Config your connection here" />
+               </items>
+            </Menu>
             </menus>
         </MenuBar>
       <Button fx:id="switchToCreateButton" layoutX="78.0" layoutY="119.0" mnemonicParsing="false" onAction="#onSwitchToCreateClick" prefHeight="44.0" prefWidth="88.0" text="C- CREATE" />

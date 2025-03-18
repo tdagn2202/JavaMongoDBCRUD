@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="415.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.uicrud.CustomConnectConfigController">
+   <children>
+      <Label layoutX="153.0" layoutY="26.0" text="Use your own MongoDB connection!">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="93.0" text="MongoDB Connection String:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtConnectionString" layoutX="33.0" layoutY="116.0" prefHeight="25.0" prefWidth="527.0" promptText="The long long thing on your mongdb dashboard :D" />
+      <Label layoutX="33.0" layoutY="149.0" text="MongoDB Connection Password:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="206.0" text="Database: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDbName" layoutX="33.0" layoutY="229.0" prefHeight="25.0" prefWidth="527.0" promptText="(Eg. &quot;Restaurant&quot;, &quot;Movies&quot;, etc.)" />
+      <Label layoutX="33.0" layoutY="262.0" text="Collection: ">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtDbCollection" layoutX="33.0" layoutY="285.0" prefHeight="25.0" prefWidth="527.0" promptText="The collection you want to working on" />
+      <Label layoutX="92.0" layoutY="332.0" text="Status: " />
+      <Button layoutX="33.0" layoutY="328.0" mnemonicParsing="false" onAction="#checkConnection" text="Check" />
+      <Label fx:id="lblStatus" layoutX="134.0" layoutY="332.0" text="Pending" />
+      <Button layoutX="386.0" layoutY="372.0" mnemonicParsing="false" onAction="#connectToDatabase" text="Connect" />
+      <Button layoutX="142.0" layoutY="372.0" mnemonicParsing="false" onAction="#backToMain" text="Back to main" />
+      <Button layoutX="237.0" layoutY="372.0" mnemonicParsing="false" onAction="#getCurrentConnection" text="Get current connection" />
+      <PasswordField fx:id="txtConnectionPassword" layoutX="33.0" layoutY="173.0" prefHeight="25.0" prefWidth="527.0" promptText="Enter your password" />
+   </children>
+</AnchorPane>

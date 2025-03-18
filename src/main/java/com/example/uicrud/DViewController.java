@@ -1,6 +1,7 @@
 package com.example.uicrud;
 
 import com.example.uicrud.DBConnection.Connection;
+import com.example.uicrud.Models.ConnectionSet;
 import com.example.uicrud.Models.Student;
 import com.example.uicrud.MongDBMethods.MongoDBMethos;
 import com.mongodb.client.MongoClient;
@@ -28,6 +29,8 @@ public class DViewController {
     @FXML
     TextField txtId, txtName;
 
+    static ConnectionSet connectionSet = ConnectionSet.getInstance();
+
     @FXML
     protected void backToMain(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
@@ -42,8 +45,10 @@ public class DViewController {
     @FXML
     protected void deleteStudentById(ActionEvent event) throws IOException {
         MongoClient mongoClient = Connection.getMongoClient();
-        MongoDatabase database = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = database.getCollection("Student");
+        System.out.println("MongoDB Connected");
+
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         ObjectId studentId = new ObjectId(txtId.getText());
 
@@ -56,8 +61,10 @@ public class DViewController {
     @FXML
     protected void checkAvailable (ActionEvent event) throws IOException {
         MongoClient mongoClient = Connection.getMongoClient();
-        MongoDatabase database = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = database.getCollection("Student");
+        System.out.println("MongoDB Connected");
+
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
         Student result = new Student();
 
         String studentId = txtId.getText();

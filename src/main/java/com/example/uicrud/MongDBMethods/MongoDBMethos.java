@@ -2,6 +2,7 @@ package com.example.uicrud.MongDBMethods;
 
 
 import com.example.uicrud.DBConnection.Connection;
+import com.example.uicrud.Models.ConnectionSet;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class MongoDBMethos {
+    static ConnectionSet connectionSet = ConnectionSet.getInstance();
 
     //C - CREATE
     public static void insertOne(Document document) {
@@ -22,8 +24,13 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
+
+        System.out.println("Using connection: " + connectionSet.getConnectionString());
+        System.out.println("Using Database: " + connectionSet.getDatabaseName());
+        System.out.println("Using Collection: " + connectionSet.getCollectionName());
+
 
         studentCollection.insertOne(document);
         System.out.println("Successfully inserted!");
@@ -33,8 +40,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         studentCollection.insertMany(documents);
         System.out.println("Successfully inserted!");
@@ -47,8 +54,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         FindIterable<Document> students = studentCollection.find();
         for (Document student : students) {
@@ -60,8 +67,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("name", studentName);
 
@@ -75,8 +82,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("class_name", studentClassName);
 
@@ -90,8 +97,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("age", studentAge);
 
@@ -107,8 +114,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("_id", new ObjectId(studentId));
         Bson updateOperation = new Document("$set", new Document("student_name", newName));
@@ -122,8 +129,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("_id", new ObjectId(studentId));
         Bson updateOperation = new Document("$set", new Document("class_name", newClassName));
@@ -136,8 +143,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("_id", new ObjectId(studentId));
         Bson updateOperation = new Document("$set", new Document("student_age", newAge));
@@ -150,8 +157,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("_id", studentId);
 
@@ -186,8 +193,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("_id", new ObjectId(studentId));
 
@@ -199,8 +206,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("name", studentName);
 
@@ -213,8 +220,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         Bson filter = Filters.eq("class_name", className);
 
@@ -226,8 +233,8 @@ public class MongoDBMethos {
         MongoClient mongoClient = Connection.getMongoClient();
         System.out.println("MongoDB Connected");
 
-        MongoDatabase sampleCRUD = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = sampleCRUD.getCollection("Student");
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         studentCollection.deleteMany(new Document()); // Empty filter deletes all documents
         System.out.println("All students deleted successfully!");

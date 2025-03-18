@@ -35,6 +35,7 @@ public class HelloController {
         System.out.println("Clickedd");
     }
 
+
     @FXML
     protected void onSwitchToCreateClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("CView.fxml"));
@@ -97,6 +98,23 @@ public class HelloController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void configConnection (ActionEvent event) throws IOException {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomConnectConfig.fxml"));
+            Parent root = loader.load();
+
+            // Get the current stage from the menu item's event
+            Stage stage = (Stage) ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
+
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e ){
             e.printStackTrace();
         }
     }

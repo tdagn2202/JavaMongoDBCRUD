@@ -1,6 +1,7 @@
 package com.example.uicrud;
 
 import com.example.uicrud.DBConnection.Connection;
+import com.example.uicrud.Models.ConnectionSet;
 import com.example.uicrud.Models.Student;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
@@ -34,6 +35,7 @@ public class RResultViewController {
     private TableColumn<Student, String> colClassName;
 
     private final ObservableList<Student> studentList = FXCollections.observableArrayList();
+    static ConnectionSet connectionSet = ConnectionSet.getInstance();
 
     @FXML
     public void initialize() {
@@ -49,8 +51,11 @@ public class RResultViewController {
     public void loadData(String queryType) {
         System.out.println("Loading data with query type: " + queryType);
         MongoClient mongoClient = Connection.getMongoClient();
-        MongoDatabase database = mongoClient.getDatabase("SampleCRUD");
-        MongoCollection<Document> studentCollection = database.getCollection("Student");
+        System.out.println("MongoDB Connected"+connectionSet.getConnectionString());
+        System.out.println("Database" + connectionSet.getDatabaseName());
+        System.out.println("Collection" + connectionSet.getCollectionName());
+        MongoDatabase sampleCRUD = mongoClient.getDatabase(connectionSet.getDatabaseName());
+        MongoCollection<Document> studentCollection = sampleCRUD.getCollection(connectionSet.getCollectionName());
 
         studentList.clear();
 
